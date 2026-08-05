@@ -3,487 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina | Automação Sustentável & Óptica Inteligente</title>
-    
-    <!-- Fontes Google -->
+    <meta name="description" content="Voziniak Smart - Automação residencial sustentável com óptica inteligente.">
+    <title>Voziniak Smart | Automação & Óptica Inteligente</title>
+
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Ícones (FontAwesome) -->
+
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* --- VARIÁVEIS E RESET --- */
-        :root {
-            --primary: #2563eb;       /* Azul Royal */
-            --secondary: #0f172a;     /* Azul Escuro Profundo */
-            --accent: #10b981;        /* Verde Esmeralda (Sustentabilidade) */
-            --gradient: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            --radius: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--secondary); }
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        /* --- UTILITÁRIOS --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-padding { padding: 6rem 0; }
-        
-        .text-gradient {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        /* --- ANIMAÇÕES (SCROLL REVEAL) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- HEADER & NAV --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 1.5rem 0;
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .logo i { color: var(--primary); }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--gradient);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-
-        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.05), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 40%);
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            max-width: 90%;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* --- SOBRE O PROJETO --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(37, 99, 235, 0.1);
-        }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- FUNCIONAMENTO (STEPS) --- */
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .step-item {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* --- ÓPTICA & AUTOMAÇÃO (SPLIT) --- */
-        .split-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .split-section.reverse .split-img { order: 2; }
-        .split-section.reverse .split-text { order: 1; }
-
-        .split-img img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .feature-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .feature-list i { color: var(--accent); }
-
-        /* --- SUSTENTABILIDADE --- */
-        .sustainability {
-            background: var(--secondary);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sustainability h2, .sustainability p { color: white; }
-        .sustainability .section-header p { opacity: 0.8; }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: var(--radius);
-            text-align: center;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        /* --- BENEFÍCIOS --- */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--primary);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover { transform: scale(1.02); }
-
-        /* --- CONTATO --- */
-        .contact-wrapper {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .contact-info {
-            background: var(--gradient);
-            padding: 4rem;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-info h3 { color: white; margin-bottom: 1.5rem; font-size: 2rem; }
-        .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-size: 1.1rem; }
-
-        .contact-form { padding: 4rem; }
-        
-        .form-group { margin-bottom: 1.5rem; }
-        
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 968px) {
-            .hero-content, .split-section, .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
-            .hero-text h1 { font-size: 2.8rem; }
-            .split-section.reverse .split-img, .split-section.reverse .split-text { order: unset; }
-            .hero-image { order: -1; } /* Imagem acima no mobile */
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                background: white;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: 0.4s ease;
-            }
-            .nav-links.active { right: 0; }
-            .mobile-toggle { display: block; z-index: 1001; }
-            .section-header h2 { font-size: 2rem; }
-            .contact-info, .contact-form { padding: 2.5rem; }
-        }
-    </style>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Barra de progresso de scroll -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- NAVEGAÇÃO -->
     <header id="navbar">
         <div class="container">
             <nav>
-                <a href="#" class="logo"><i class="fa-solid fa-layer-group"></i> Lumina</a>
-                <ul class="nav-links">
+                <a href="#home" class="logo">
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i> Voziniak <span class="text-gradient">Smart</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">O Projeto</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#funcionamento">Funcionamento</a></li>
                     <li><a href="#otica">Óptica</a></li>
                     <li><a href="#automacao">Automação</a></li>
-                    <li><a href="#contato" class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Contato</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#contato" class="btn btn-primary">Contato</a></li>
                 </ul>
-                <div class="mobile-toggle"><i class="fa-solid fa-bars"></i></div>
+                <div class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </nav>
         </div>
     </header>
@@ -492,23 +49,22 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text reveal">
-                <span style="color: var(--primary); font-weight: 600; letter-spacing: 1px;">INOVAÇÃO SUSTENTÁVEL</span>
-                <h1>O Futuro da <br><span class="text-gradient">Iluminação Inteligente</span></h1>
-                <p>Integramos óptica avançada e automação residencial para criar ambientes que respiram, economizam energia e elevam o bem-estar humano.</p>
+                <span class="hero-tag">INOVAÇÃO SUSTENTÁVEL</span>
+                <h1>Iluminação <span class="text-gradient" id="typewriter"></span><span class="type-cursor">|</span></h1>
+                <p>A Voziniak Smart une óptica avançada e automação para criar ambientes que respiram, economizam energia e elevam o seu bem-estar.</p>
                 <a href="#sobre" class="btn btn-primary">Conhecer o Projeto</a>
             </div>
             <div class="hero-image reveal">
-                <!-- Placeholder de imagem moderna de arquitetura -->
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casa moderna com iluminação inteligente">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Casa moderna com iluminação inteligente Voziniak Smart">
             </div>
         </div>
     </section>
 
-    <!-- SOBRE O PROJETO -->
+    <!-- SOBRE -->
     <section id="sobre" class="section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Sobre o Projeto Lumina</h2>
+                <h2>Sobre a Voziniak Smart</h2>
                 <p>Mais do que tecnologia, uma filosofia de design que une conforto visual e responsabilidade ecológica.</p>
             </div>
             <div class="about-grid">
@@ -532,7 +88,7 @@
     </section>
 
     <!-- FUNCIONAMENTO -->
-    <section id="funcionamento" class="section-padding" style="background: white;">
+    <section id="funcionamento" class="section-padding bg-white">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Como Funciona</h2>
@@ -567,14 +123,14 @@
     <section id="otica" class="section-padding">
         <div class="container split-section">
             <div class="split-img reveal">
-                <img src="https://images.unsplash.com/photo-1507646227500-4d389b0012be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luz natural entrando por janela moderna">
+                <img src="https://images.unsplash.com/photo-1507646227500-4d389b0012be?auto=format&fit=crop&w=800&q=80" alt="Luz natural entrando por janela moderna">
             </div>
             <div class="split-text reveal">
                 <h2>Óptica Avançada & Luz Natural</h2>
-                <p>A base do nosso projeto é a valorização da luz do sol. Utilizamos películas inteligentes e difusores ópticos que redirecionam a luz natural para o fundo dos ambientes, reduzindo a necessidade de lâmpadas durante o dia.</p>
+                <p>A base do nosso projeto é a valorização da luz do sol. Utilizamos películas inteligentes e difusores ópticos que redirecionam a luz natural para o fundo dos ambientes.</p>
                 <br>
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-check-circle"></i> Vidros eletrocrômicos (escurecem automaticamente)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Vidros eletrocrômicos que escurecem automaticamente</li>
                     <li><i class="fa-solid fa-check-circle"></i> Tubos de luz solar para áreas internas</li>
                     <li><i class="fa-solid fa-check-circle"></i> Eliminação de ofuscamento e calor excessivo</li>
                 </ul>
@@ -583,10 +139,10 @@
     </section>
 
     <!-- AUTOMAÇÃO -->
-    <section id="automacao" class="section-padding" style="background: white;">
+    <section id="automacao" class="section-padding bg-white">
         <div class="container split-section reverse">
             <div class="split-img reveal">
-                <img src="https://images.unsplash.com/photo-1558002038-1091a1661116?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interface de automação residencial em tablet">
+                <img src="https://images.unsplash.com/photo-1558002038-1091a1661116?auto=format&fit=crop&w=800&q=80" alt="Interface de automação residencial em tablet">
             </div>
             <div class="split-text reveal">
                 <h2>Automação Inteligente</h2>
@@ -595,7 +151,7 @@
                 <ul class="feature-list">
                     <li><i class="fa-solid fa-wifi"></i> Controle por voz e gestos</li>
                     <li><i class="fa-solid fa-mobile-screen"></i> App dedicado com monitoramento em tempo real</li>
-                    <li><i class="fa-solid fa-clock"></i> Cenas programáveis (Leitura, Cinema, Jantar)</li>
+                    <li><i class="fa-solid fa-clock"></i> Cenas programáveis: Leitura, Cinema, Jantar</li>
                 </ul>
             </div>
         </div>
@@ -610,20 +166,20 @@
             </div>
             <div class="stats-grid reveal">
                 <div class="stat-card">
-                    <div class="stat-number">60%</div>
+                    <div class="stat-number"><span class="counter" data-target="60">0</span>%</div>
                     <p>Economia de Energia</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">100%</div>
+                    <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
                     <p>Materiais Recicláveis</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">Zero</div>
-                    <p>Emissão de CO2 Operacional</p>
+                    <div class="stat-number"><span class="counter" data-target="25">0</span>k+</div>
+                    <p>Horas de Vida Útil LED</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">25k+</div>
-                    <p>Horas de Vida Útil LED</p>
+                    <div class="stat-number"><span class="counter" data-target="40">0</span>%</div>
+                    <p>Redução de CO2</p>
                 </div>
             </div>
         </div>
@@ -633,45 +189,92 @@
     <section id="beneficios" class="section-padding">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Por que escolher a Lumina?</h2>
+                <h2>Por que escolher a Voziniak Smart?</h2>
                 <p>Benefícios tangíveis para sua vida e seu bolso.</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-piggy-bank" style="color:var(--primary); margin-right:10px;"></i> Valorização Imobiliária</h4>
+                    <h4><i class="fa-solid fa-piggy-bank"></i> Valorização Imobiliária</h4>
                     <p>Imóveis com certificação de eficiência e automação valem significativamente mais no mercado.</p>
                 </div>
                 <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-heart-pulse" style="color:var(--primary); margin-right:10px;"></i> Saúde e Bem-estar</h4>
+                    <h4><i class="fa-solid fa-heart-pulse"></i> Saúde e Bem-estar</h4>
                     <p>Iluminação biológica que regula hormônios, melhora o humor e a qualidade do sono.</p>
                 </div>
                 <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-shield-halved" style="color:var(--primary); margin-right:10px;"></i> Segurança</h4>
+                    <h4><i class="fa-solid fa-shield-halved"></i> Segurança</h4>
                     <p>Simulação de presença quando você viaja e integração com câmeras e alarmes.</p>
                 </div>
                 <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-sliders" style="color:var(--primary); margin-right:10px;"></i> Personalização Total</h4>
+                    <h4><i class="fa-solid fa-sliders"></i> Personalização Total</h4>
                     <p>Cada ambiente se adapta ao seu gosto pessoal e às necessidades do momento.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ (nova seção interativa) -->
+    <section id="faq" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre a Voziniak Smart.</p>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo leva a instalação?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A instalação padrão é concluída em até 3 dias úteis, dependendo do tamanho do imóvel e da complexidade do projeto.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>É compatível com a minha casa atual?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. Nossa solução é modular e se adapta tanto a construções novas quanto a reformas, sem necessidade de grandes obras.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Preciso de internet para funcionar?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>As funções essenciais operam localmente, mesmo sem internet. A conexão é usada apenas para controle remoto e atualizações.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso controlar pelo celular?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim. Nosso aplicativo está disponível para Android e iOS, permitindo controle total de qualquer lugar do mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTATO -->
-    <section id="contato" class="section-padding" style="background: white;">
+    <section id="contato" class="section-padding">
         <div class="container">
             <div class="contact-wrapper reveal">
                 <div class="contact-info">
                     <h3>Vamos transformar seu espaço?</h3>
-                    <p style="margin-bottom: 2rem; opacity: 0.9;">Entre em contato para um orçamento personalizado ou visita técnica.</p>
-                    
+                    <p class="contact-subtitle">Entre em contato para um orçamento personalizado ou visita técnica.</p>
                     <div class="info-item">
                         <i class="fa-solid fa-location-dot"></i>
                         <span>Av. Inovação, 1000 - Tech Park, SP</span>
                     </div>
                     <div class="info-item">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>contato@lumina-projeto.com.br</span>
+                        <span>contato@voziniaksmart.com.br</span>
                     </div>
                     <div class="info-item">
                         <i class="fa-solid fa-phone"></i>
@@ -679,20 +282,24 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" novalidate>
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
-                            <input type="text" id="name" placeholder="Seu nome">
+                            <input type="text" id="name" name="name" placeholder="Seu nome">
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" placeholder="seu@email.com">
+                            <input type="email" id="email" name="email" placeholder="seu@email.com">
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="message">Mensagem</label>
-                            <textarea id="message" rows="4" placeholder="Como podemos ajudar?"></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Como podemos ajudar?"></textarea>
+                            <span class="error-message"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+                        <p class="form-success" id="formSuccess">✓ Mensagem enviada com sucesso!</p>
                     </form>
                 </div>
             </div>
@@ -702,77 +309,25 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <a href="#" class="logo" style="justify-content: center; color: white; margin-bottom: 1rem;">
-                <i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> Lumina
+            <a href="#home" class="logo footer-logo">
+                <i class="fa-solid fa-bolt"></i> Voziniak <span class="text-gradient">Smart</span>
             </a>
-            <p style="opacity: 0.6; max-width: 500px; margin: 0 auto;">Iluminando o futuro com inteligência e sustentabilidade.</p>
-            
+            <p class="footer-tagline">Iluminando o futuro com inteligência e sustentabilidade.</p>
             <div class="social-links">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            
-            <p style="font-size: 0.8rem; opacity: 0.4;">&copy; 2026 Lumina Smart Living. Todos os direitos reservados.</p>
+            <p class="footer-copy">&copy; 2026 Voziniak Smart. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script>
-        // Menu Mobile Toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        const links = document.querySelectorAll('.nav-links li');
+    <!-- Botão voltar ao topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            if(navLinks.classList.contains('active')){
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Fechar menu ao clicar em link
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileToggle.querySelector('i').classList.remove('fa-xmark');
-                mobileToggle.querySelector('i').classList.add('fa-bars');
-            });
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 50){
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 100;
-
-            revealElements.forEach((reveal) => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        // Trigger once on load
-        revealOnScroll();
-    </script>
+    <!-- JavaScript externo -->
+    <script src="js/script.js"></script>
 </body>
 </html>
