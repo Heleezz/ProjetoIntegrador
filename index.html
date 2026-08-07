@@ -1,336 +1,321 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <link rel="stylesheet" href="./css/style.css">
-<script src="./js/script.js" defer></script>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Voziniak Smart - Automação residencial sustentável com óptica inteligente.">
-    <title>Voziniak Smart | Automação & Óptica Inteligente</title>
-
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOziniak | Aquecimento Sustentável de Piscinas Térmicas</title>
+  <meta name="description" content="Projeto Integrador do CEP: automação e aquecimento sustentável da piscina térmica com energia solar, óptica, robótica e acessibilidade. Empresa: VOziniak." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Barra de progresso de scroll -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo principal</a>
 
-    <!-- NAVEGAÇÃO -->
-    <header id="navbar">
-        <div class="container">
-            <nav>
-                <a href="#home" class="logo">
-                    <i class="fa-solid fa-bolt" aria-hidden="true"></i> Voziniak <span class="text-gradient">Smart</span>
-                </a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#funcionamento">Funcionamento</a></li>
-                    <li><a href="#otica">Óptica</a></li>
-                    <li><a href="#automacao">Automação</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#contato" class="btn btn-primary">Contato</a></li>
-                </ul>
-                <div class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <!-- ===== BARRA DE ACESSIBILIDADE ===== -->
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container barra-inner">
+      <span>Acessibilidade:</span>
+      <div class="botoes-acessibilidade">
+        <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" id="btn-aumentar" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" id="btn-diminuir" aria-label="Diminuir tamanho da fonte">A−</button>
+      </div>
+    </div>
+  </div>
 
-    <!-- HOME / HERO -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <div class="hero-text reveal">
-                <span class="hero-tag">INOVAÇÃO SUSTENTÁVEL</span>
-                <h1>Iluminação <span class="text-gradient" id="typewriter"></span><span class="type-cursor">|</span></h1>
-                <p>A Voziniak Smart une óptica avançada e automação para criar ambientes que respiram, economizam energia e elevam o seu bem-estar.</p>
-                <a href="#sobre" class="btn btn-primary">Conhecer o Projeto</a>
-            </div>
-            <div class="hero-image reveal">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Casa moderna com iluminação inteligente Voziniak Smart">
-            </div>
+  <!-- ===== CABEÇALHO / MENU ===== -->
+  <header class="cabecalho">
+    <nav class="container nav" aria-label="Navegação principal">
+      <a class="logo" href="#inicio">VOziniak<span class="logo-destaque">·sustentável</span></a>
+      <button type="button" class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar o menu">
+        <span class="traco"></span><span class="traco"></span><span class="traco"></span>
+      </button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#optica">Óptica aplicada</a></li>
+        <li><a href="#robotica">Robótica</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="#acessibilidade">Acessibilidade</a></li>
+        <li><a href="#impacto">Impacto social</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ===== HERÓI ===== -->
+    <section class="heroi" id="inicio" aria-labelledby="titulo-heroi">
+      <div class="container heroi-inner">
+        <div class="heroi-texto">
+          <p class="heroi-selo">Projeto Integrador · CEP · 2º Ano L Manhã</p>
+          <h1 id="titulo-heroi">Aquecimento <strong>sustentável</strong> e inteligente para a piscina térmica do CEP</h1>
+          <p class="heroi-subtitulo">
+            A <strong>VOziniak</strong> apresenta uma solução que une <strong>óptica aplicada</strong>,
+            <strong>robótica</strong> e <strong>acessibilidade digital</strong> para aquecer a piscina
+            com energia solar — reduzindo custos, emissões e promovendo inclusão.
+          </p>
+          <div class="heroi-acoes">
+            <a class="botao botao-primario" href="#simulador">Testar o simulador</a>
+            <a class="botao botao-secundario" href="#optica">Entender a ciência</a>
+          </div>
         </div>
+
+        <figure class="heroi-figura">
+          <svg class="heroi-svg" viewBox="0 0 460 320" role="img" aria-labelledby="svg-heroi-titulo">
+            <title id="svg-heroi-titulo">Esquema do sistema VOziniak: o Sol ilumina a placa coletora, a bomba circula a água e a piscina é aquecida.</title>
+            <circle class="svg-sol" cx="80" cy="70" r="36" />
+            <g class="svg-raios">
+              <line x1="80" y1="18" x2="80" y2="4" />
+              <line x1="128" y1="38" x2="138" y2="28" />
+              <line x1="32" y1="38" x2="22" y2="28" />
+              <line x1="118" y1="100" x2="168" y2="132" />
+              <line x1="105" y1="118" x2="150" y2="158" />
+            </g>
+            <rect class="svg-placa" x="170" y="120" width="150" height="90" rx="10" />
+            <line class="svg-placa-linha" x1="185" y1="145" x2="305" y2="145" />
+            <line class="svg-placa-linha" x1="185" y1="165" x2="305" y2="165" />
+            <line class="svg-placa-linha" x1="185" y1="185" x2="305" y2="185" />
+            <rect class="svg-agua" x="170" y="240" width="270" height="70" rx="14" />
+            <path class="svg-tubo" d="M 300 240 L 300 210" />
+            <path class="svg-tubo" d="M 210 210 L 210 240" />
+            <polygon class="svg-seta" points="294,228 306,228 300,216" />
+            <polygon class="svg-seta" points="204,224 216,224 210,236" />
+          </svg>
+          <figcaption class="sr-only">Ilustração do ciclo: radiação solar, coletor e piscina.</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section-padding">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Sobre a Voziniak Smart</h2>
-                <p>Mais do que tecnologia, uma filosofia de design que une conforto visual e responsabilidade ecológica.</p>
-            </div>
-            <div class="about-grid">
-                <div class="card reveal">
-                    <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
-                    <h3>Design Centrado no Humano</h3>
-                    <p>Nossa iluminação respeita o ciclo circadiano, ajustando a temperatura de cor para melhorar o sono e a produtividade.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
-                    <h3>Eco-Eficiência</h3>
-                    <p>Redução de até 60% no consumo energético através de sensores de presença e aproveitamento máximo da luz solar.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
-                    <h3>Tecnologia Invisível</h3>
-                    <p>Automação que não complica. Sistemas integrados que funcionam de forma autônoma e intuitiva.</p>
-                </div>
-            </div>
+    <!-- ===== ÓPTICA ===== -->
+    <section id="optica" class="secao" aria-labelledby="titulo-optica">
+      <div class="container">
+        <h2 id="titulo-optica">Tecnociência e Óptica aplicada</h2>
+        <p class="secao-intro">
+          Como a luz do Sol vira calor? O sistema VOziniak aproveita três fenômenos ópticos
+          para aquecer a água com máxima eficiência:
+        </p>
+
+        <div class="cards-3">
+          <article class="cartao">
+            <h3>Absorção</h3>
+            <p>As placas coletoras usam superfície <strong>escura e fosca</strong>, que absorve
+              quase todo o espectro visível da luz. Quanto mais luz absorvida, mais energia
+              térmica é transferida para a água que circula nos tubos.</p>
+          </article>
+          <article class="cartao">
+            <h3>Reflexão</h3>
+            <p>Painéis laterais <strong>refletores</strong> (alumínio polido) redirecionam para a
+              placa a radiação que seria perdida. Já o vidro com tratamento
+              <strong>antirreflexo</strong> minimiza a luz refletida de volta ao ambiente.</p>
+          </article>
+          <article class="cartao">
+            <h3>Refração</h3>
+            <p>A cobertura de vidro <strong>refrata</strong> a luz e prende o calor dentro da
+              placa — o <strong>efeito estufa</strong>: a luz entra, aquece a superfície escura e
+              o calor irradiado não consegue escapar pelo vidro.</p>
+          </article>
         </div>
+
+        <div class="cards-2">
+          <article class="cartao">
+            <h3>Disco de Newton — interativo</h3>
+            <p>Gire o disco e veja as cores se misturarem até o branco: a luz branca é a soma de
+              todas as cores. <strong>Analogia prática:</strong> uma placa <em>branca</em>
+              refletiria todas as cores e aqueceria pouco; nossa placa <em>escura</em> faz o
+              oposto — absorve quase todo o espectro, maximizando o calor.</p>
+            <div class="disco" role="img" aria-label="Disco de Newton com sete cores que gira conforme a velocidade escolhida">
+              <div class="disco-giro" id="disco-giro"></div>
+              <div class="disco-nevoa" id="disco-nevoa"></div>
+              <div class="disco-eixo" aria-hidden="true"></div>
+            </div>
+            <label class="campo-rotulo" for="velocidade-disco">
+              Velocidade de rotação: <output id="velocidade-valor">0</output> rpm
+            </label>
+            <input type="range" id="velocidade-disco" min="0" max="100" value="0"
+                   aria-describedby="disco-explicacao" />
+            <p id="disco-explicacao" class="texto-apoio" aria-live="polite">
+              Mova o controle para girar o disco e observar a mistura das cores.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <h3>Câmara escura — analogia</h3>
+            <p>Na câmara escura, a luz entra por um pequeno orifício e fica “presa” no interior,
+              projetando a imagem invertida. O coletor solar usa o mesmo princípio: a luz
+              atravessa o vidro e é <strong>absorvida pelas paredes escuras</strong>, que
+              convertem a radiação em calor e o mantêm confinado.</p>
+            <svg class="svg-diagrama" viewBox="0 0 460 200" role="img" aria-labelledby="t-camara">
+              <title id="t-camara">Diagrama de uma câmara escura: raios de luz atravessam um pequeno orifício e formam uma imagem invertida no interior.</title>
+              <line class="svg-objeto" x1="50" y1="60" x2="50" y2="140" />
+              <polygon class="svg-objeto" points="42,68 58,68 50,48" />
+              <rect class="svg-caixa" x="180" y="20" width="240" height="160" />
+              <line class="svg-parede" x1="180" y1="20" x2="180" y2="88" />
+              <line class="svg-parede" x1="180" y1="112" x2="180" y2="180" />
+              <line class="svg-raio-linha" x1="50" y1="60" x2="380" y2="161" />
+              <line class="svg-raio-linha" x1="50" y1="140" x2="380" y2="39" />
+              <line class="svg-imagem" x1="380" y1="39" x2="380" y2="161" />
+            </svg>
+            <p class="texto-apoio">Assim como na câmara escura, a radiação que entra não escapa:
+              é absorvida e transformada — no nosso caso, em calor para a piscina.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- FUNCIONAMENTO -->
-    <section id="funcionamento" class="section-padding bg-white">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Como Funciona</h2>
-                <p>Um ecossistema conectado em 4 etapas simples.</p>
-            </div>
-            <div class="steps-container reveal">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <h4>Captura</h4>
-                    <p>Sensores leem a luminosidade externa e a ocupação do ambiente em tempo real.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <h4>Processamento</h4>
-                    <p>A IA central calcula a necessidade exata de luz artificial complementar.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <h4>Atuação</h4>
-                    <p>Dimmers e persianas se ajustam automaticamente para manter o conforto constante.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <h4>Feedback</h4>
-                    <p>O sistema aprende com seus hábitos e otimiza o consumo continuamente.</p>
-                </div>
-            </div>
+    <!-- ===== ROBÓTICA ===== -->
+    <section id="robotica" class="secao secao-alternada" aria-labelledby="titulo-robotica">
+      <div class="container">
+        <h2 id="titulo-robotica">Robótica e Programação</h2>
+        <p class="secao-intro">
+          O coração do sistema é um <strong>laço de realimentação</strong>: sensores medem,
+          o microcontrolador decide e os atuadores agem — um ciclo contínuo de automação.
+        </p>
+
+        <div class="cards-3">
+          <article class="cartao"><h3>Sensores (entrada)</h3>
+            <ul>
+              <li><strong>DS18B20:</strong> mede a temperatura da água da piscina.</li>
+              <li><strong>LDR:</strong> mede a intensidade de luz sobre as placas.</li>
+              <li><strong>Sensor de fluxo:</strong> confirma a circulação nos canos.</li>
+            </ul>
+          </article>
+          <article class="cartao"><h3>Controle (cérebro)</h3>
+            <ul>
+              <li><strong>Microcontrolador (ESP32/Arduino):</strong> compara leituras com a meta (30&nbsp;°C).</li>
+              <li><strong>Relés:</strong> ligam/desligam a bomba com segurança.</li>
+              <li><strong>Painel/app acessível:</strong> monitoramento em tempo real.</li>
+            </ul>
+          </article>
+          <article class="cartao"><h3>Atuadores (saída)</h3>
+            <ul>
+              <li><strong>Bomba de circulação:</strong> leva a água até os coletores.</li>
+              <li><strong>Válvula solenoide:</strong> abre/fecha o circuito solar.</li>
+              <li><strong>Aquecedor auxiliar:</strong> só entra em ação sem sol (economia).</li>
+            </ul>
+          </article>
         </div>
+
+        <h3 class="subtitulo-fluxo">Fluxograma do ciclo de automação</h3>
+        <ol class="fluxograma" id="fluxograma">
+          <li class="no"><strong>1. Leitura:</strong> o sensor DS18B20 mede a temperatura da água.</li>
+          <li class="no"><strong>2. Comparação:</strong> o microcontrolador compara com a meta de 30&nbsp;°C.</li>
+          <li class="no no-decisao"><strong>3. Decisão:</strong> temperatura abaixo da meta?</li>
+          <li class="no"><strong>4. Ação:</strong> bomba e válvula são acionadas pelos relés.</li>
+          <li class="no"><strong>5. Aquecimento:</strong> a água circula pelas placas coletoras solares.</li>
+          <li class="no"><strong>6. Retorno:</strong> a água aquecida volta à piscina e o ciclo recomeça.</li>
+        </ol>
+        <div class="fluxo-acoes">
+          <button type="button" class="botao botao-primario" id="btn-simular-ciclo">Simular ciclo do sistema</button>
+        </div>
+        <p id="status-ciclo" class="status-ciclo" role="status" aria-live="polite">
+          Pressione o botão para acompanhar o funcionamento do sistema passo a passo.
+        </p>
+      </div>
     </section>
 
-    <!-- ÓPTICA -->
-    <section id="otica" class="section-padding">
-        <div class="container split-section">
-            <div class="split-img reveal">
-                <img src="https://images.unsplash.com/photo-1507646227500-4d389b0012be?auto=format&fit=crop&w=800&q=80" alt="Luz natural entrando por janela moderna">
+    <!-- ===== SIMULADOR ===== -->
+    <section id="simulador" class="secao" aria-labelledby="titulo-simulador">
+      <div class="container">
+        <h2 id="titulo-simulador">Simulador interativo do aquecimento</h2>
+        <p class="secao-intro">
+          Ajuste os valores e veja o comportamento do sistema VOziniak.
+          <em>(Modelo físico simplificado, para fins didáticos.)</em>
+        </p>
+
+        <div class="simulador-grade">
+          <div class="cartao simulador-controles">
+            <div class="campo">
+              <label for="controle-radiacao">Radiação solar:
+                <strong><output id="saida-radiacao">800</output> W/m²</strong></label>
+              <input type="range" id="controle-radiacao" min="200" max="1000" step="10" value="800" />
             </div>
-            <div class="split-text reveal">
-                <h2>Óptica Avançada & Luz Natural</h2>
-                <p>A base do nosso projeto é a valorização da luz do sol. Utilizamos películas inteligentes e difusores ópticos que redirecionam a luz natural para o fundo dos ambientes.</p>
-                <br>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-check-circle"></i> Vidros eletrocrômicos que escurecem automaticamente</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Tubos de luz solar para áreas internas</li>
-                    <li><i class="fa-solid fa-check-circle"></i> Eliminação de ofuscamento e calor excessivo</li>
-                </ul>
+            <div class="campo">
+              <label for="controle-placas">Placas coletoras:
+                <strong><output id="saida-placas">10</output></strong></label>
+              <input type="range" id="controle-placas" min="1" max="20" value="10" />
             </div>
+            <div class="campo">
+              <label for="controle-ambiente">Temperatura ambiente:
+                <strong><output id="saida-ambiente">22</output> °C</strong></label>
+              <input type="range" id="controle-ambiente" min="10" max="35" value="22" />
+            </div>
+            <div class="campo campo-check">
+              <input type="checkbox" id="controle-capa" checked />
+              <label for="controle-capa">Usar capa térmica (reduz perdas de calor)</label>
+            </div>
+          </div>
+
+          <div class="cartao simulador-resultados" aria-live="polite">
+            <div class="resultado-linha"><span>Potência captada:</span> <strong id="res-potencia">—</strong></div>
+            <div class="resultado-linha"><span>Aquecimento da água:</span> <strong id="res-ganho">—</strong></div>
+            <div class="resultado-linha"><span>Temperatura de equilíbrio:</span> <strong id="res-equilibrio">—</strong></div>
+            <div class="resultado-linha"><span>Tempo estimado até 30 °C:</span> <strong id="res-tempo">—</strong></div>
+            <div class="termometro" role="img" aria-label="Termômetro visual da temperatura de equilíbrio, de 15 a 45 graus Celsius">
+              <div class="termometro-barra" id="termometro-barra"></div>
+              <div class="termometro-marca" title="Meta: 30 °C"><span class="sr-only">Marca da meta de 30 graus</span></div>
+            </div>
+            <p id="res-mensagem" class="resultado-mensagem"></p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- AUTOMAÇÃO -->
-    <section id="automacao" class="section-padding bg-white">
-        <div class="container split-section reverse">
-            <div class="split-img reveal">
-                <img src="https://images.unsplash.com/photo-1558002038-1091a1661116?auto=format&fit=crop&w=800&q=80" alt="Interface de automação residencial em tablet">
-            </div>
-            <div class="split-text reveal">
-                <h2>Automação Inteligente</h2>
-                <p>O cérebro da operação. Nossa plataforma integra todos os pontos de luz, cortinas e climatização em uma única interface fluida.</p>
-                <br>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-wifi"></i> Controle por voz e gestos</li>
-                    <li><i class="fa-solid fa-mobile-screen"></i> App dedicado com monitoramento em tempo real</li>
-                    <li><i class="fa-solid fa-clock"></i> Cenas programáveis: Leitura, Cinema, Jantar</li>
-                </ul>
-            </div>
+    <!-- ===== ACESSIBILIDADE ===== -->
+    <section id="acessibilidade" class="secao secao-alternada" aria-labelledby="titulo-acessibilidade">
+      <div class="container">
+        <h2 id="titulo-acessibilidade">Acessibilidade digital no site</h2>
+        <p class="secao-intro">
+          Este site foi desenvolvido pela VOziniak para ser acessível a <strong>todos os usuários</strong>,
+          seguindo as diretrizes WCAG 2.1. Recursos implementados:
+        </p>
+        <div class="cards-3">
+          <article class="cartao"><h3>Contraste e leitura</h3>
+            <p>Modo de <strong>alto contraste</strong> (botão no topo), cores com razão de contraste
+              adequada e fontes legíveis com tamanho ajustável (A+ / A−).</p>
+          </article>
+          <article class="cartao"><h3>Navegação clara</h3>
+            <p>Menu intuitivo, link para “pular ao conteúdo”, navegação completa por
+              <strong>teclado</strong> e foco visível em todos os elementos interativos.</p>
+          </article>
+          <article class="cartao"><h3>Semântica e alternativas</h3>
+            <p>HTML semântico (nav, main, section), textos alternativos em imagens e diagramas,
+              ARIA nos controles e leitores de tela anunciando mudanças de status.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- SUSTENTABILIDADE -->
-    <section id="sustentabilidade" class="section-padding sustainability">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Compromisso Sustentável</h2>
-                <p>Tecnologia a serviço do planeta. Cada decisão de design visa reduzir a pegada de carbono.</p>
-            </div>
-            <div class="stats-grid reveal">
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="60">0</span>%</div>
-                    <p>Economia de Energia</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
-                    <p>Materiais Recicláveis</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="25">0</span>k+</div>
-                    <p>Horas de Vida Útil LED</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="40">0</span>%</div>
-                    <p>Redução de CO2</p>
-                </div>
-            </div>
+    <!-- ===== IMPACTO ===== -->
+    <section id="impacto" class="secao" aria-labelledby="titulo-impacto">
+      <div class="container">
+        <h2 id="titulo-impacto">Inovação e impacto social</h2>
+        <div class="cards-3">
+          <article class="cartao"><h3>Sustentabilidade</h3>
+            <p>Energia 100% solar: zero emissões diretas de CO₂ e redução de até
+              <strong>70%</strong> no custo elétrico do aquecimento da piscina do CEP.</p>
+          </article>
+          <article class="cartao"><h3>Inclusão e bem-estar</h3>
+            <p>A piscina térmica aquecida amplia as atividades de <strong>hidroterapia</strong> e
+              educação física inclusiva, beneficiando toda a comunidade escolar.</p>
+          </article>
+          <article class="cartao"><h3>Conscientização</h3>
+            <p>O site funciona como vitrine educativa: visitantes interagem com o simulador e
+              aprendem sobre <strong>energia limpa, óptica e inclusão digital</strong>.</p>
+          </article>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- BENEFÍCIOS -->
-    <section id="beneficios" class="section-padding">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Por que escolher a Voziniak Smart?</h2>
-                <p>Benefícios tangíveis para sua vida e seu bolso.</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-piggy-bank"></i> Valorização Imobiliária</h4>
-                    <p>Imóveis com certificação de eficiência e automação valem significativamente mais no mercado.</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-heart-pulse"></i> Saúde e Bem-estar</h4>
-                    <p>Iluminação biológica que regula hormônios, melhora o humor e a qualidade do sono.</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-shield-halved"></i> Segurança</h4>
-                    <p>Simulação de presença quando você viaja e integração com câmeras e alarmes.</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <h4><i class="fa-solid fa-sliders"></i> Personalização Total</h4>
-                    <p>Cada ambiente se adapta ao seu gosto pessoal e às necessidades do momento.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p><strong>VOziniak</strong> · Projeto Integrador — Programação, Robótica e Tecnociência</p>
+      <p>Equipe: ____________________ · CEP — 2º Ano L Manhã · <span id="ano">2025</span></p>
+      <p>Site desenvolvido com HTML, CSS e JavaScript puros, seguindo diretrizes de acessibilidade (WCAG 2.1).</p>
+    </div>
+  </footer>
 
-    <!-- FAQ (nova seção interativa) -->
-    <section id="faq" class="section-padding bg-white">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Perguntas Frequentes</h2>
-                <p>Tire suas dúvidas sobre a Voziniak Smart.</p>
-            </div>
-            <div class="faq-container reveal">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Quanto tempo leva a instalação?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>A instalação padrão é concluída em até 3 dias úteis, dependendo do tamanho do imóvel e da complexidade do projeto.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>É compatível com a minha casa atual?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sim. Nossa solução é modular e se adapta tanto a construções novas quanto a reformas, sem necessidade de grandes obras.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Preciso de internet para funcionar?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>As funções essenciais operam localmente, mesmo sem internet. A conexão é usada apenas para controle remoto e atualizações.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Posso controlar pelo celular?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sim. Nosso aplicativo está disponível para Android e iOS, permitindo controle total de qualquer lugar do mundo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section-padding">
-        <div class="container">
-            <div class="contact-wrapper reveal">
-                <div class="contact-info">
-                    <h3>Vamos transformar seu espaço?</h3>
-                    <p class="contact-subtitle">Entre em contato para um orçamento personalizado ou visita técnica.</p>
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Av. Inovação, 1000 - Tech Park, SP</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>contato@voziniaksmart.com.br</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>(11) 99999-9999</span>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm" novalidate>
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" placeholder="Seu nome">
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="seu@email.com">
-                            <span class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Como podemos ajudar?"></textarea>
-                            <span class="error-message"></span>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
-                        <p class="form-success" id="formSuccess">✓ Mensagem enviada com sucesso!</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <a href="#home" class="logo footer-logo">
-                <i class="fa-solid fa-bolt"></i> Voziniak <span class="text-gradient">Smart</span>
-            </a>
-            <p class="footer-tagline">Iluminando o futuro com inteligência e sustentabilidade.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <p class="footer-copy">&copy; 2026 Voziniak Smart. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Botão voltar ao topo -->
-    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript externo -->
-    <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
